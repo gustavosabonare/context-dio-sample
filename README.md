@@ -1,46 +1,15 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Start - Começaremos falando dos casos mais comuns sobre o Context API e o princípio do Context API que é servir como um Injetor de Dependencia para todo o APP e não ser um Gestor de Estados. ( Claro que iremos fazer a gestão dos estados mais pra frente rsrs).
 
-## Available Scripts
+-`App-0-router-context` O App inicial contém apenas um state para um botão que incrementa um counter, mas antes de atacar o counter com Context, iniciaremos falando do Context que provavelmente todo mundo já conhece: ReactRouter, aqui iremos utilizar o `App-0-router-context`, nele está instanciado o Provider e uma página de `Location` onde iremos mostrar o dado sendo recebido via Hook `useHistory`.
 
-In the project directory, you can run:
+-`App-1-theme-context` Após isso, podemos atacar outro tipo de uso da ContextAPI bem comum, temificação. Aqui iremos utilizar o `App-1-theme-context` que instancia o `createTheme` e o `themeProvider` do `materia-ui` para demonstrar como podemos agregar valor não só relacionados a dados puros, mas também layout.
 
-### `npm start`
+-`App-2-count-context` Já dado um contexto geral sobre Context e seus usos mais comuns, podemos começar a atacar o counter. Usando o `App-2-count-context`, criamos um context que apenas recebe o valor alterado pela raiz do projeto. Aqui já podemos pincelar as dificuldades e diferenças entre o Context API ser apenas uma ferramenta para injetar dependencias e não uma ferramenta de Gestão de Estados.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-`App-3-user-context`: Caso de uso mais real, com dados de usuário inseridos no "Login" e exibindo-os em diversas telas: `Inicio` e `Lista`, mas ainda sem gestão de estados.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+-`App-4-user-context-controlled` Aqui podemos começar a explicar como gerencias estados internamente no contexto. Antes era apenas o App.tsx que gerenciava os estados, agora vamos usar o UserContextControlled e o hook useUser para buscar e gerenciar os estados do usuário.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+-`App-5-user-context-combined` Aqui é a hora de complicar um pouco mais as coisas, podemos exaltar os multiplos contextos que temos instanciados no App.tsx e explicar as complicações de manter tantos ao mesmo tempo. Também iremos pela abordagem de unicar todos dados para exemplificar que quando um estado muda, todos componentes que estão com `subscribe` são afetados, mesmo os que não utilizam algum dados específico.
